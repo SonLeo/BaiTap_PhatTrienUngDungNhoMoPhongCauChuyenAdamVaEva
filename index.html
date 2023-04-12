@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Apple {
+            constructor() {
+                this.weight = 10;
+            }
+
+            decrease() {
+                if (this.weight > 0) {
+                    this.weight--;
+                }
+            }
+
+            isEmpty() {
+                if (this.weight == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            getWeight() {
+                return this.weight;
+            }
+        }
+
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+
+            setApple(apple) {
+                this.apple = apple;
+            }
+
+            isMale() {
+                return this.gender ? true : false;
+            }
+
+            setGender(gender) {
+                this.gender = gender;
+            }
+
+            checkApple(apple) {
+                return !apple.isEmpty();
+            }
+
+            eat(apple) {
+                this.weight++;
+                this.apple.decrease();
+            }
+
+            say(string) {
+                console.log(this.name + ": " + string);
+            }
+
+            getName() {
+                return this.name;
+            }
+
+            setName(string) {
+                this.name = string;
+            }
+
+            getWeight() {
+                return this.weight;
+            }
+
+            setWeight(weight) {
+                this.weight = weight;
+            }
+
+            getGender() {
+                return this.gender;
+            }
+        }
+
+        let apple = new Apple();
+        let adam = new Human("Adam", true, 65);
+        adam.setApple(apple);
+        let eva = new Human("Eva", false, 50);
+        eva.setApple(apple);
+        console.log("Adam weight: " + adam.weight);  
+        console.log("Eva weight: " + eva.weight);
+        console.log("Eva check apple: " + eva.checkApple(apple));
+        console.log("[Eva eat apple]");
+        eva.eat(apple);
+        console.log("Apple weight:" + apple.weight);
+        console.log("Adam weight: " + adam.weight);
+        console.log("Eva weight: " + eva.weight);
+        eva.say("Ồ vị của nó sao tuyệt vời quá! chắc là Adam sẽ thích lắm đây!");
+        adam.say("Ta ấy à? Thích cái gì mới được chứ?");
+        eva.say("Thích cái này này, cắn một miếng đi rồi anh sẽ thích cho mà xem.");
+        adam.say("Wow, trông cũng ngon đấy");
+        console.log("[Adam eat apple]");
+        adam.eat(apple);
+        console.log("Apple weight:" + apple.weight);
+        console.log("Adam weight: " + adam.weight);
+        console.log("Eva weight: " + eva.weight);
+    </script>
+</body>
+
+</html>
